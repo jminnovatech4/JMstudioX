@@ -1,0 +1,14 @@
+JM StudioX - Auto Save / Resume Editing
+
+Changes in this version:
+- Added EditorSession and EditorSessionStore in app/src/main/java/com/jmstudiox/app/data/model/.
+- Editor settings, selected tool, source URI, extra clip URIs and playhead are saved to app-private SharedPreferences.
+- On app start, an unfinished session prompts Continue Editing / Start Over.
+- Continue restores the selected media, settings, selected tool and approximate playhead.
+- Start Over clears only the saved editor session; it does not delete source media.
+- Original FFmpeg engine and command builder are not changed.
+
+Important verification note:
+- Build could not be run in this environment because Gradle 8.9 needs to download from services.gradle.org and outbound network access was unavailable.
+- Please open in Android Studio, Sync Gradle, and run Build > Make Project before replacing your current installation.
+- Photo Picker URI grants are requested persistently when supported by Android; if a media provider revokes access, the source file may need to be selected again.
